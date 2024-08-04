@@ -1,0 +1,27 @@
+
+<%- include('../includes/header.ejs')%>
+    <link rel="stylesheet" href="/CSS/addProduct.css">
+    </head>
+
+    <body>
+            <main>
+                <div class="container">
+                    <h1>Email sent</h1>
+                    <div>
+                        <%if(emailMassage){%>
+                            <p class="text-danger"><%=emailMassage%></p>
+                            <%}%>
+                    </div>
+                    <form action="/postEmailForgotPas" method="post">
+                        <label for="foremail">Email address:</label>
+                        <input type="text" id="foremail" name="foremail" placeholder="Enter your email">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+        </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    </body>
+
+    </html> 

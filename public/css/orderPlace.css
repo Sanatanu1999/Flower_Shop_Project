@@ -1,0 +1,16 @@
+.order-confirmation {
+    margin-top: 50px;
+    text-align: center;
+}
+.order-confirmation h1 {
+    font-size: 3rem;
+    color: #28a745;
+}
+.order-confirmation p {
+    font-size: 1.2rem;
+}
+.btn-custom {
+    background-color: #28a745;
+    color: white;
+    margin-top: 20px;
+}

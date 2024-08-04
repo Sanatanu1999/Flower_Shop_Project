@@ -1,0 +1,54 @@
+<%- include('../includes/header.ejs')%>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/user/cardprod">Home</a>
+                  </li>
+                  <li class="nav-item">
+                   <a class="nav-link" href="/user/cardprod">About</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/cardprod">Products</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/cardprod">Contact</a>
+                  </li> 
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <form action="/user/editPost" method="POST">
+                <div class="mb-3">
+                    <input type="hidden" name="pid" id="pid" value="<%=data._id%>"> 
+                </div>
+                <div class="mb-3">
+                    <label for="fulname">Full name:</label>
+                    <input type="text" name="fulname" id="fulname" placeholder="Enter your full name" value="<%=data.full_name%>"><br><br>
+                </div>
+                <div class="mb-3">
+                    <label for="ephone">Phone Number:</label>
+                    <input type="number" name="ephone" id="ephone" placeholder="Enter your phone number" value="<%=data.contact_no%>"><br><br>
+                </div>
+                <div class="mb-3">
+                    <label for="eaddress">Address:</label>
+                    <input type="text" name="eaddress" id="eaddress" placeholder="Enter your address" value="<%=data.address%>"><br><br>
+                </div>
+
+                <button type="submit" class="btn btn-primary">update</button>
+            </form>
+
+        </div>
+    </main>

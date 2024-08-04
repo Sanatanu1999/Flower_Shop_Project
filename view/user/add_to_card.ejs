@@ -1,0 +1,70 @@
+<%-include('../includes/header.ejs')%>
+</head>
+<body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/user/cardprod">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/user/cardprod">About</a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/cardprod">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/cardprod">Contact</a>
+                </li> 
+              </ul>
+            </div>
+          </div>
+        </nav>
+  </header>
+  
+
+
+    <main>
+      <table class="table table-bordered ">
+        <h1 class="text-center">Add to cart detail</h1>
+        <input type="hidden" name="order_id" id="order_id" value="<%=data._id%>">
+        <thead>
+            <%if(data.length>0){%>
+          <tr>
+            <th scope="col">Product_Image</th>
+            <th scope="col">Product_name</th>
+            <th scope="col">Product_Catagory</th>
+            <th scope="col">Product_Price</th>
+            <th scope="col">quantity</th>
+            <th scope="col">Total</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <%for(let obj of data){%>
+          <tr>
+            <th scope="row"><img src="/<%=obj.cart[0].product_image%>" alt="image" height="100"></th>
+            <td><%=obj.cart[0].product_name%></td>
+            <td><%=obj.cart[0].product_catagory%></td>
+            <td><%=obj.cart[0].product_price%></td>
+            <td><a href="/changeQntySub/<%=obj._id%>"><i class="fa fa-minus inc-dec"></i></a>
+              <%=obj.quantity%>
+              <a href="/changeQntyAdd/<%=obj._id%>"><i class="fa fa-plus inc-dec"></i></a>
+            </td>
+            <td data-th="Subtotal" class="text-center sub-price" id="Subtotal">Rs.<%=obj.cart[0].product_price*obj.quantity%></td>
+            
+          </tr>
+          <%}%>
+        </tbody>
+        <%}else{%>
+            <h3>Data not found</h3>
+        <%}%>
+    </table>
+    <a href="/place_order" class="btn btn-success">Place Order</a>
+    </main>

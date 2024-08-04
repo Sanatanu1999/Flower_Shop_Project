@@ -1,0 +1,46 @@
+<%- include('../includes/header.ejs')%>
+    <link rel="stylesheet" href="/CSS/addProduct.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navbar.ejs')%>
+            <main>
+                <div class="container">
+                    <h1>Edit Product</h1>
+                    <form action="/postedit" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="Iid" id="Iid" value="<%=data._id%>">
+                        <label for="productName">Product Name:</label>
+                        <input type="text" id="productName" name="productName" value="<%=data.product_name%>">
+
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4"><%=data.product_description%></textarea>
+
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" step="0.01" value="<%=data.product_price%>">
+
+                        <label for="category">Category:</label>
+                        <select id="category" name="category" value="<%=data.product_catagory%>">
+                            <option value="rose1">Rose1</option>
+                            <option value="rose2">Rose2</option>
+                            <option value="mixed_flower_1">mixed_flower_1</option>
+                            <option value="mixed_flower_2">mixed_flower_2</option>
+                            <option value="lily_1">lily_1</option>
+                            <option value="lily_2">lily_2</option>
+                            <option value="yellow1_flower">yellow1_flower</option>
+                            <option value="yellow2_flower">yellow2_flower</option>
+                        </select>
+
+                        <label for="product_image">Product Image:</label>
+                        <input type="file" id="product_image" name="product_image">
+                        <img src="/uploads/<%=data.product_image%>" alt="...">
+
+                        <button type="submit">Edit Product</button>
+                    </form>
+                </div>
+        </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    </body>
+
+    </html>

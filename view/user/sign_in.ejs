@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS/sign_in.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Login to Your Account</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/postSignIn" method="POST">
+                            <div>
+                                <%if(errorMsg){%>
+                                    <p class="text-danger"><%=errorMsg%></p>
+                                <%}%>
+                            </div>
+                            <div class="form-group">
+                                <label for="lemail">Email</label>
+                                <input type="email" class="form-control" id="lemail" name="lemail" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lpassword">Password</label>
+                                <input type="password" class="form-control" id="lpassword" name="lpassword" placeholder="Enter your password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p>Don't have an account? <a href="/sign-up">Create an account</a></p>
+                        <p><a href="/getEmailForgotPas">Forgot your password?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

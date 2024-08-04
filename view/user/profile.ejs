@@ -1,0 +1,67 @@
+<%- include('../includes/header.ejs')%>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/user/cardprod">Home</a>
+                  </li>
+                  <li class="nav-item">
+                   <a class="nav-link" href="/user/cardprod">About</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/cardprod">Products</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/cardprod">Contact</a>
+                  </li> 
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    
+      <section class="viewProduct">
+        <div class="container py-5">
+         <h2 class="text-center mb-4 text-dark"><u>User Profile</u></h2>
+         
+         <div class="row">
+          <%if(data.length>0){%>
+             <%for(let obj of data){%>
+             <div class="col-lg-3 col-md-4 mb-4">
+                 <div class="card text-center">
+                     <div class="card-body">
+                         <h4 class="card-title">Full Name:<%=obj.full_name%></h4>
+                         <p class="card-text">Email:<%=obj.email%></p>
+                         <p class="card-text">Contact No:<%=obj.contact_no%></p>
+                         <p class="card-text">Address:<%=obj.address%></p>
+                         <div class="col">
+                            <a href="/user/viewProfileEdit/<%=obj._id%>" class="btn btn-primary">Edit</a>
+                            <a href="/user/deleteProfile/<%=obj._id%>" class="btn btn-danger">Delete</a>
+                        </div>
+                     </div>
+     
+                 </div>
+
+             </div>
+             <%}%>
+             <%}else{%>
+                 <p>Data Not Found</p>
+                 <%}%>
+
+         </div>
+
+        </div>
+
+     </section>
+        
+</body>
+</html>

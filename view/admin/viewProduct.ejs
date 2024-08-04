@@ -1,0 +1,65 @@
+<%-include('../includes/header.ejs')%>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <!-- <div class="container">
+            <h1 class="text-center">All form of product</h1>
+        </div>
+        <%if(data.length>0){%>
+            <div class="row bg-info py-2">
+                <div class="col">Product_Image:</b></div>
+                <div class="col">Product_name:</b></div>
+                <div class="col">Product_description:</b></div>
+                <div class="col">Product_Price:</b></div>
+                <div class="col">Product_Catagory:</b></div>
+                <div class="col">Product_Edit:</b></div>
+                <div class="col">Product_Delete:</b></div>
+            </div>
+            <%for(let obj of data){%>
+                <div class="row">
+                    <div class="col"><img src="/<%=obj.product_image%>" alt="image" height="100"></div>
+                    <div class="col"><%=obj.product_name%></div>
+                    <div class="col"><%=obj.product_description%></div>
+                    <div class="col"><%=obj.product_price%></div>
+                    <div class="col"><%=obj.product_catagory%></div>
+                    <div class="col"><a href="/admin/viewEdit/<%=obj._id%>" class="btn btn-success">Edit</a></div>
+                    <div class="col"><a href="/admin/deleteProduct/<%=obj._id%>" class="btn btn-success">Delete</a></div>
+                </div>
+                <%}%>
+                <%}else{%>
+                    <h3>Data not found</h3>
+                <%}%> -->
+                <table class="table table-bordered ">
+                    <h1 class="text-center">All form of product</h1>
+                    <thead>
+                        <%if(data.length>0){%>
+                      <tr>
+                        <th scope="col">Product_Image:</th>
+                        <th scope="col">Product_name:</th>
+                        <th scope="col">Product_description:</th>
+                        <th scope="col">Product_Price:</th>
+                        <th scope="col">Product_Catagory:</th>
+                        <th scope="col">Product_Edit:</th>
+                        <th scope="col">Product_Delete:</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let obj of data){%>
+                      <tr>
+                        <th scope="row"><img src="/<%=obj.product_image%>" alt="image" height="100"></th>
+                        <td><%=obj.product_name%></td>
+                        <td><%=obj.product_description%></td>
+                        <td><%=obj.product_price%></td>
+                        <td><%=obj.product_catagory%></td>
+                        <td><a href="/editPage/<%=obj._id%>" class="btn btn-success">Edit</a></td>
+                        <td><a href="/admin/deleteProduct/<%=obj._id%>" class="btn btn-success">Delete</a></td>
+                      </tr>
+                      <%}%>
+                    </tbody>
+                    <%}else{%>
+                        <h3>Data not found</h3>
+                    <%}%>
+                </table>
+    </main>
+
