@@ -7,7 +7,7 @@ const authMiddleware=require('../middleware/isAuth')
 
 
 
-route.get('/sign-up',getSignUpForm)
+route.get('/',getSignUpForm)
 route.post('/postSignUp',postSignUpForm)
 route.get('/sign-in',getSignInForm)
 route.post('/postSignIn',postSignInForm)

@@ -10,20 +10,20 @@ const addProductForm=(req,res)=>{
 const postData=async(req,res)=>{
     try{
         console.log("collected value form add product form",req.body,req.file);
-        // let image=req.file.filename
-        // const storeData=new adminModel({
-        // product_name:req.body.productName,
-        // product_description:req.body.description,
-        // product_price:req.body.price,
-        // product_catagory:req.body.category,
-        // product_image:image
-        // })
-        // let saveData=await storeData.save();
-        // if(saveData)
-        // {
-        //     console.log("product is saved");
-        //     res.redirect('/view_product')
-        // }
+        let image=req.file.filename
+        const storeData=new adminModel({
+        product_name:req.body.productName,
+        product_description:req.body.description,
+        product_price:req.body.price,
+        product_catagory:req.body.category,
+        product_image:image
+        })
+        let saveData=await storeData.save();
+        if(saveData)
+        {
+            console.log("product is saved");
+            res.redirect('/view_product')
+        }
     }catch(err){
         console.log("Data is not collected",err);
     }

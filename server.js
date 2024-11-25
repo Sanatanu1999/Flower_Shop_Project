@@ -41,7 +41,7 @@ mongoose.connect(process.env.DB_URL)
 .then(res=>{
     appServer.listen(PORT,()=>{
         console.log("Database connected")
-        console.log(`visit at http://localhost:${PORT}/sign-up`);
+        console.log(`visit at http://localhost:${PORT}`);
     })
 })
 .catch(err=>{
